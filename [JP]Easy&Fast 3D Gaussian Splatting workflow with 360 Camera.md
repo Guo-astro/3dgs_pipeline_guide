@@ -30,12 +30,10 @@
     * Extract Sharpest Frame
         * https://github.com/Kotohibi/Extract_sharpest_frame
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
-        * Gumroad Windows Binary Edition: https://kotohibi.gumroad.com/
 * Metashape 360 SfMからCOLMAP形式のCubemap変換ツール
     * Metashape 360 to COLMAP Converter
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
-        * Gumroad Windows Binary Edition: https://kotohibi.gumroad.com/
 # 動画撮影する(e.g. OSMO360)
 カメラを自撮り棒に付けて、キャプチャしたい範囲をゆっくりと歩きます
 動画設定はD-Log M, 30fps以上の撮影がお勧めです
@@ -50,7 +48,7 @@
 * 動画から静止画を切り出す方法は様々あります。お好きな方法を調査、選択してください
 ここでは私が公開しているツールをご紹介します
 **Extract Sharpest Frame**は指定フレーム間隔で一番シャープな画像を切り出すツールです
-* **新機能はBOOTH, Gumroad版を優先的にupdateしております**
+* **新機能はBOOTH版を優先的にupdateしております**
 ![](./images/ESP_2.png)
 
 |主要項目|説明|
@@ -134,7 +132,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 * MetashapeのSfM結果からCOLMAP形式の6方向画像のCubemapに展開します
 ここでは私が公開しているツールをご紹介します
 **Metashape 360 to COLMAP Converter**
-* **新機能はBOOTH, Gumroad版を優先的にupdateしております**
+* **新機能はBOOTH版を優先的にupdateしております**
 
 ### 設定①
 ![](./images/MS360CC.png)
@@ -157,7 +155,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 ### 設定②
 * 人物や自動車等のマスクを生成することが可能です
 特に360 Cameraは自身が映り込む為、マスク生成は重要な作業になります
-* **下記設定内容はBOOTH, Gumroad版で説明します、Github版より機能強化されています**
+* **下記設定内容はBOOTH版で説明します、Github版より機能強化されています**
 ![](https://storage.googleapis.com/zenn-user-upload/51916a668c5a-20260322.png)
 
 |主要項目|説明|
