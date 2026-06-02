@@ -63,6 +63,7 @@
 |Remove similar frames|類似フレームを除外します|
 |pHash threshold|類似フレームの判定閾値を指定します。値が大きいほど画像を間引きます。撮影時の移動速度が不規則な場合に有効な機能です|
 |Mask Generation|人や自動車等のマスク画像を生成します。後段のSfMの精度が上がります|
+|SAM3 Mask|最新版はSAM3マスク対応済みです。任意の短いセンテンスでマスク可能です。https://x.com/kotohibi_3d/status/2061044432837972367|
 |YOLO Class IDs|検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc.. カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml|
 |YOLO Confidence|閾値を下げると認識率は上がりますが、ノイズも増えます|
 |Custom Mask|固定のマスク画像を指定します。YOLOの自動マスクと併用する場合は融合されます。カメラリグ等が常に映り込む部分をマスクするのに有効です。<br><small>注）動画と同じ解像度のPNG画像を指定してください</small>![](./images/ESP_2_1.png)|
@@ -82,6 +83,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 ### 切り出した全天球画像をロードします
 * [Workflow]->[Add Folder]
 ![](https://storage.googleapis.com/zenn-user-upload/b39e5a8c4bc7-20260322.png)
+
 ### Camera TypeをSphericalに変更
 * [Tools]->[Camera Calibration]を選択して、Camera typeにSphericalを選択します
 ![](https://storage.googleapis.com/zenn-user-upload/25897fe5c593-20260322.png)

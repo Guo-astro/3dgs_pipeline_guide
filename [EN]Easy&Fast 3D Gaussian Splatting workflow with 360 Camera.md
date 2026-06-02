@@ -71,6 +71,7 @@ Here I introduce the tool I have published.
 | Remove similar frames | Excludes similar frames. |
 | pHash threshold    | Specifies the threshold for judging similar frames. Higher values remove more images. This is useful when movement speed during shooting is irregular. |
 | Mask Generation    | Generates mask images for objects such as people and cars. This improves SfM accuracy in later steps. |
+| SAM3 Mask          | The latest version supports SAM3 masks. You can generate masks using any short sentence. https://x.com/kotohibi_3d/status/2061044432837972367 |
 | YOLO Class IDs     | Specify the object IDs you want to detect. 0: person, 1: bicycle, 2: car, etc. Multiple IDs can be specified comma-separated. https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml |
 | YOLO Confidence    | Lowering the threshold increases detection rate but also increases noise. |
 | Custom Mask        | Specify a fixed mask image. If used together with YOLO automatic masking, they are merged. This is useful for masking areas that are always visible, such as a camera rig.<br><small>Note: Specify a PNG image with the same resolution as the video.</small><br>![](./images/ESP_2_1.png) |
