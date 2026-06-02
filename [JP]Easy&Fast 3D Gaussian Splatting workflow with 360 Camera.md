@@ -94,9 +94,15 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 
 ### SfMのパラメータ設定
 * [Workflow]->[Align Photos]
-私が良く使うパラメータ例を示します
-[**Apply masks to**]は[**Key points**]を選択します。
-![](./images/metashape_3_mask.png)
+私が良く使うパラメータ2例を示します
+
+|例|説明|
+|------|------|
+|![](./images/metashape_3_mask.png)|"Generic preselection"をONにします。低精度設定でまず写真のマッチングを行い、重なり合うペアを選択してから本処理を行います。高速ですが失敗することがあります。その場合は下を試してみてください。[**Apply masks to**]は[**Key points**]を選択します。|
+|![](./images/metashape_3_mask_1.png)|"Generic preselection"をOFFにします。すべての画像ペアをフルにマッチングさせます。処理に時間がかかるので、"Key point limit"は小さくします。"Tie point limit"は0にして無制限にします。[**Apply masks to**]は[**Key points**]を選択します。|
+
+
+
 ### 実行
 * OKボタンを押して、SfMを実行します
 結果例を示します。球体マークがそれぞれの全天球画像に相当します

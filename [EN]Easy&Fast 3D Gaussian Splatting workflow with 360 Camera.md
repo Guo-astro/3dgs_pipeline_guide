@@ -100,9 +100,13 @@ Use the settings below and click [OK]. Then a folder selection dialog will appea
 ![](./images/metashape_mask_load_2.png)
 ### Set SfM parameters  
 [Workflow] → [Align Photos]  
-Here is an example of parameters I often use.  
-Select [**Key points**] for [**Apply masks to**].
-![](./images/metashape_3_mask.png)
+Here are two parameter examples I often use.
+
+| Example | Description |
+|------|------|
+| ![](./images/metashape_3_mask.png) | Turn ON "Generic preselection." It first matches photos at a low-precision setting, selects overlapping pairs, and then runs the main process. This is fast, but it can fail in some cases. If that happens, try the option below. For [**Apply masks to**], select [**Key points**]. |
+| ![](./images/metashape_3_mask_1.png) | Turn OFF "Generic preselection." This performs full matching for all image pairs. Since it takes longer, set "Key point limit" to a smaller value. Set "Tie point limit" to 0 for unlimited points. For [**Apply masks to**], select [**Key points**]. |
+
 ### Execute  
 Click OK to run SfM.  
 Example result shown below. The spherical markers correspond to each omnidirectional image.  
