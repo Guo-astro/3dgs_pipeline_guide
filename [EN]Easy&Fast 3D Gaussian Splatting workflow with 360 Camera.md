@@ -38,6 +38,12 @@ This workflow demonstrates an example of performing robust and relatively fast c
     * Metashape 360 to COLMAP Converter
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
     * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
+
+* (Optional) Additional license for estimating real-world scale in 3DCG
+    * Metashape 360 to COLMAP Converter includes a feature that estimates the real-world scale of 3DGS using a 2D marker called AprilTag. An additional license is required to use it. The following articles explain how to use AprilTag.
+    * Add-on Real Scale 3DGS with AprilTag https://kotohibi-cg.booth.pm/items/8323677
+    * English version: https://x.gd/CoWJA
+    * Japanese version: https://x.gd/Isahb
     
 
 # Video Shooting (e.g. OSMO360)
@@ -56,22 +62,22 @@ Recommended video settings: D-Log M, 30 fps or higher.
 There are many ways to extract still images from video. Research and choose your preferred method.  
 Here I introduce the tool I have published.  
 **Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.  
-* **New features are prioritized for updates in the BOOTH and Gumroad editions**  
-![](./images/ESP_2.png)
+* **New features are prioritized for updates in the BOOTH edition**  
+![](./images/ESP_3.png)
 
 | Main Item          | Description |
 |--------------------|-------------|
-| Video file         | Select the omnidirectional video.<br><small>Note: File paths containing multibyte characters are not supported.</small> |
-| Output folder      | Specify the folder where still images and masks will be saved. `frames` and `masks` folders will be created under this folder.<br><small>Note: File paths containing multibyte characters are not supported.</small> |
+| Video file         | Select the omnidirectional video. Multiple videos can be selected and processed in a batch.<br><small>Note: File paths containing multibyte characters are not supported.</small> |
+| Output folder      | Specify the folder where still images and masks will be saved. `frames` and `masks` folders will be created under this folder. You can also choose whether images extracted from multiple videos should be collected into a single folder.<br><small>Note: File paths containing multibyte characters are not supported.</small> |
 | Scale width        | Image size used when calculating sharpness for all video frames. Larger values give more precise calculations. Note: Extracted images are always output at the original video resolution. |
 | Chunk size         | Interval for extracting still images. For a 30 fps video, setting 30 extracts images every 1 second. |
 | Workers            | Number of processes used when calculating image sharpness. Around 4 is recommended. |
 | Start (HH:MM:SS)   | Specify the time to start extraction. The format is HH:MM:SS.<br><small>If left blank, processing starts from the beginning of the video.</small> |
 | End (HH:MM:SS)     | Specify the time to end extraction. The format is HH:MM:SS.<br><small>If left blank, processing continues to the end of the video.</small> |
-| Remove similar frames | Excludes similar frames. |
+| Remove similar frames | Excludes similar frames. If Review is enabled, you can adjust the threshold during execution to control how many images are extracted. |
 | pHash threshold    | Specifies the threshold for judging similar frames. Higher values remove more images. This is useful when movement speed during shooting is irregular. |
 | Mask Generation    | Generates mask images for objects such as people and cars. This improves SfM accuracy in later steps. |
-| SAM3 Mask          | The latest version supports SAM3 masks. You can generate masks using any short sentence. https://x.com/kotohibi_3d/status/2061044432837972367 |
+| SAM3 Mask          | The latest version supports SAM3 masks. You can generate masks using any short sentence. You can preview the mask result with the Preview/Edit button. ![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367 |
 | YOLO Class IDs     | Specify the object IDs you want to detect. 0: person, 1: bicycle, 2: car, etc. Multiple IDs can be specified comma-separated. https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml |
 | YOLO Confidence    | Lowering the threshold increases detection rate but also increases noise. |
 | Custom Mask        | Specify a fixed mask image. If used together with YOLO automatic masking, they are merged. This is useful for masking areas that are always visible, such as a camera rig.<br><small>Note: Specify a PNG image with the same resolution as the video.</small><br>![](./images/ESP_2_1.png) |
@@ -97,7 +103,9 @@ Select [Tools] → [Camera Calibration] and set Camera type to Spherical.
 ### Load the mask images
 Select [File] → [Import] → [Import Masks].
 ![](./images/metashape_mask_load.png)
-Use the settings below and click [OK]. Then a folder selection dialog will appear; select the mask folder generated by Extract Sharpest Frame.
+Set the mask import options as shown below, then click [OK].
+* Set Filename template to `{filename}.png` (the default is `{filename}_mask.png`).
+Then a folder selection dialog will appear; select the mask folder generated by Extract Sharpest Frame.
 ![](./images/metashape_mask_load_2.png)
 ### Set SfM parameters  
 [Workflow] → [Align Photos]  
@@ -180,6 +188,10 @@ Here I introduce the tool I have published.
 ### Settings ③ (Advanced Settings)
 * You can load the custom masks configured in Extract Sharpest Frame. This is useful when used together with a camera rig. Specify mask images as PNG files with the same file count, resolution, and filenames as the still images.
 ![](./images/MS360CC_2_1.png)
+
+### Settings ④ (Advanced Settings)
+* This feature estimates the real-world scale of 3DGS using 2D markers. An additional license is required. The following articles explain how to use AprilTag. English version: https://x.gd/CoWJA, Japanese version: https://x.gd/Isahb
+![](./images/apriltag_1.png)
 
 ### Execute  
 After processing completes successfully, the following folders and files are generated in the output folder.  

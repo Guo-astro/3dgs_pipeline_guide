@@ -34,6 +34,13 @@
     * Metashape 360 to COLMAP Converter
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
+
+* (任意) 3DCGの実寸を推定する為の追加ライセンス
+    * Metashape 360 to COLMAP ConverterはAprilTagという二次元マーカーを利用して、3DGSの実寸を推定する機能があります。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています
+    * Add-on Real Sacle 3DGS with AprilTag https://kotohibi-cg.booth.pm/items/8323677
+    * 英語版 : https://x.gd/CoWJA
+    * 日本語版 : https://x.gd/Isahb
+
 # 動画撮影する(e.g. OSMO360)
 カメラを自撮り棒に付けて、キャプチャしたい範囲をゆっくりと歩きます
 動画設定はD-Log M, 30fps以上の撮影がお勧めです
@@ -49,21 +56,21 @@
 ここでは私が公開しているツールをご紹介します
 **Extract Sharpest Frame**は指定フレーム間隔で一番シャープな画像を切り出すツールです
 * **新機能はBOOTH版を優先的にupdateしております**
-![](./images/ESP_2.png)
+![](./images/ESP_3.png)
 
 |主要項目|説明|
 |---|---|
-|Video file|全天球動画を選択。<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
-|Output folder|静止画とマスクを切り出す先のフォルダを指定。このフォルダ以下にframesとmasksフォルダが作られます<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>||
+|Video file|全天球動画を選択。複数動画を選択し一括処理可能です。<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
+|Output folder|静止画とマスクを切り出す先のフォルダを指定。このフォルダ以下にframesとmasksフォルダが作られます。複数動画から切り出した画像を一つのフォルダにまとめるかを選択可能です<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>||
 |Scale width|全動画フレームの画像のシャープさを計算する時の画サイズです。大きくした方が緻密に計算されます。注）切り出し画像は常にオリジナル動画と同じ画サイズで切り出されます|
 |Chunk size|静止画を切り出す間隔を指定。30fps動画で30を指定すると1秒間隔で切り出されます|
 |Workers|画像のシャープさを計算する時のプロセス数を指定。4前後がお勧めです|
 |Start(HH:MM:SS)|切り出しを開始する時間を指定します。形式はHH:MM:SSです<br><small>空の場合は動画の先頭から開始します</small>|
 |End(HH:MM:SS)|切り出しを終了する時間を指定します。形式はHH:MM:SSです<br><small>空の場合は動画の末尾まで処理します</small>|
-|Remove similar frames|類似フレームを除外します|
+|Remove similar frames|類似フレームを除外します。ReviewをONにすると実行時に閾値調整して切り出し枚数を調整可能です|
 |pHash threshold|類似フレームの判定閾値を指定します。値が大きいほど画像を間引きます。撮影時の移動速度が不規則な場合に有効な機能です|
 |Mask Generation|人や自動車等のマスク画像を生成します。後段のSfMの精度が上がります|
-|SAM3 Mask|最新版はSAM3マスク対応済みです。任意の短いセンテンスでマスク可能です。https://x.com/kotohibi_3d/status/2061044432837972367|
+|SAM3 Mask|最新版はSAM3マスク対応済みです。任意の短いセンテンスでマスク可能です。Preview/Editボタンでマスク結果を確認できます。![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367|
 |YOLO Class IDs|検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc.. カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml|
 |YOLO Confidence|閾値を下げると認識率は上がりますが、ノイズも増えます|
 |Custom Mask|固定のマスク画像を指定します。YOLOの自動マスクと併用する場合は融合されます。カメラリグ等が常に映り込む部分をマスクするのに有効です。<br><small>注）動画と同じ解像度のPNG画像を指定してください</small>![](./images/ESP_2_1.png)|
@@ -91,6 +98,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 * [File]->[Import]->[Import Masks]を選択します
 ![](./images/metashape_mask_load.png)
 * マスク読み込み設定を以下にして、[OK]を押します
+    * Filename templateを{filename}.pngにします(初期値は{filename}_mask.pngになっています)![](./images/metashape_mask_load_1.png)
 その後フォルダ選択画面が出るので、Extract Sharpest Frameで生成したマスクフォルダを指定します
 ![](./images/metashape_mask_load_2.png)
 
@@ -177,6 +185,10 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 ### 設定③（高度な設定）
 * Extract Sharpest Frameで設定したカスタムマスクをロード可能です。カメラリグと併用する場合に有効です。マスク画像は静止画と同じ枚数、同じ解像度のPNG画像、同じファイル名で指定してください
 ![](./images/MS360CC_2_1.png)
+### 設定④（高度な設定）
+* 二次元マーカーを利用して、3DGSの実寸を推定する機能です。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています。英語版 : https://x.gd/CoWJA, 日本語版 : https://x.gd/Isahb
+![](./images/apriltag_1.png)
+
 ### 実行
 * 処理実行後、正常に完了すると出力フォルダに以下のようなフォルダとファイルが生成されます
 ![](https://storage.googleapis.com/zenn-user-upload/fc379b61d4eb-20260322.png)
