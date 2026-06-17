@@ -56,7 +56,7 @@ Recommended video settings: D-Log M, 30 fps or higher.
 There are many ways to extract still images from video. Research and choose your preferred method.  
 Here I introduce the tool I have published.  
 **Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.  
-* **New features are prioritized for updates in the BOOTH and Gumroad editions**  
+* **New features are prioritized for updates in the BOOTH edition**  
 ![](./images/ESP_2.png)
 
 | Main Item          | Description |
@@ -143,7 +143,7 @@ Select [Tools] → [Tie Points] → [Clean Tie points].
 Convert the Metashape SfM results into COLMAP-format 6-direction Cubemap images.  
 Here I introduce the tool I have published.  
 **Metashape 360 to COLMAP Converter**  
-* **New features are prioritized for updates in the BOOTH editions**  
+* **New features are prioritized for updates in the BOOTH edition**  
 ### Settings ①  
 ![](./images/MS360CC.png)
 
@@ -166,7 +166,7 @@ Here I introduce the tool I have published.
 * You can mask objects such as people or vehicles.  
 * Especially important for 360° cameras because the operator is often captured in the frame. Mask generation is a critical step.  
 
-* **The settings below are explained in the BOOTH editions. The GitHub version has fewer features.**  
+* **The settings below are explained in the BOOTH edition. The GitHub version has fewer features.**  
 ![](https://storage.googleapis.com/zenn-user-upload/51916a668c5a-20260322.png)
 
 | Main Item             | Description |
@@ -204,8 +204,12 @@ Select **Remove Background** for Mask Mode.
 * Once the Cubemap is successfully imported, you will see a screen like the one above.
 
 ### Start 3DGS Training
-![](https://storage.googleapis.com/zenn-user-upload/d298d3ed5248-20260322.png)
 * Here is an example of training parameters I use for wide-area 3DGS. Adjust parameters according to your scene.
+* Turn on Photometric Compensation.
+* Change Max Splat Count according to the scale of the scene (3,000-12,000 kSplats).
+* Adjust Max Sph.Hrm.Degree (1-3). If VRAM is limited, I recommend 1.
+* Stop Training After is calculated automatically according to the number of images.
+![](./images/postshot_3.png)
 
 ### 3DGS Training Result
 ![](https://storage.googleapis.com/zenn-user-upload/420154d101ed-20260322.png)
@@ -215,7 +219,7 @@ Select **Remove Background** for Mask Mode.
 Here I explain the workflow using LichtFeld Studio (LFS).
 
 ### Import Cubemap
-* Select [File] → [Import Dataset], then specify the `Output Folder` from Metashape 360 to COLMAP Converter.
+* Select [File] → [Import Dataset], then specify the `Output Folder` from Metashape 360 to COLMAP Converter. 
 ![](./images/lfs_1.png)
 
 * If the data is detected correctly, a dialog like the one below appears. Confirm the contents and click [Load] to continue.
@@ -227,11 +231,13 @@ Here I explain the workflow using LichtFeld Studio (LFS).
 ### Start 3DGS Training
 * Mask settings
     * Select [Training Parameters] → [Mask Mode] → [Ignore].
+    * Turn off [Alpha Mask].
 * Training parameters
     * Here is an example of settings I often use.
     * I recommend [Strategy] → [MRNF] (at the time this article was written).
     * Adjust `Max Gaussians` according to the scale of the scene (3,000,000-12,000,000).
     * Adjust `SH Degree` (1-3). If VRAM is limited, I recommend 1.
+    * `Iterations` and `Steps Scaler` are calculated automatically according to the number of images.
     * With MRNF, changes to the other parameters are usually not very necessary.
     * LFS has many parameters, so please research on the web and find the best settings for your scene.
 ![](./images/lfs_4.png)

@@ -197,7 +197,11 @@ Mask Modeは**Remove Background**を選択します
 ![](https://storage.googleapis.com/zenn-user-upload/41e8ba454bde-20260322.png)
 ### 3DGS学習開始
 * 私が広域3DGSで使う学習パラメータ例を示します。シーンに合わせてパラメータは調整してください
-![](https://storage.googleapis.com/zenn-user-upload/d298d3ed5248-20260322.png)
+* Photometric Compensationをオンにします
+* Max Splat Countをシーンの大きさに応じて変更します(3,000～12,000kSplats)
+* Max Sph.Hrm.Degreeを調整します(1～3), VRAMが少ない環境は1を推奨します
+* Stop Training Afterは画像枚数によって自動計算されます
+![](./images/postshot_3.png)
 ### 3DGS学習結果
 * 学習が進むと、3DGSが見えてくると思います！
 ![](https://storage.googleapis.com/zenn-user-upload/420154d101ed-20260322.png)
@@ -217,11 +221,13 @@ Mask Modeは**Remove Background**を選択します
 ### 3DGS学習開始
 * Mask設定
   * [Training Parameters]->[Mask Mode]->[Ignore]を選択します
+  * [Alpha Mask]はオフにします
 * 学習パラメータ
   * 私が良く使う設定を下図に示します
   * [Strategy]->[MRNF]をお勧めします（※この記事執筆時点）
   * Max Gaussiansをシーンの大きさに応じて変更します(3,000,000～12,000,000)
   * SH Degreeを調整します(1～3), VRAMが少ない環境は1を推奨します
+  * IterationsとSteps Scalerは画像枚数に応じて自動計算されます
   * MRNFの場合、その他のパラメータの変更はあまり必要ありません
   * LFSはパラメーターが多い為Webで調べてシーンに最適な設定を探してください
 ![](./images/lfs_4.png)
