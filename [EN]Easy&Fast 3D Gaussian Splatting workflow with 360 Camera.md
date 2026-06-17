@@ -63,11 +63,7 @@ There are many ways to extract still images from video. Research and choose your
 Here I introduce the tool I have published.  
 **Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.  
 * **New features are prioritized for updates in the BOOTH edition**  
-<<<<<<< HEAD
-![](./images/ESP_2.png)
-=======
 ![](./images/ESP_3.png)
->>>>>>> 1d9923c4579d3b991af9d55ae5fc46514c94456c
 
 | Main Item          | Description |
 |--------------------|-------------|
