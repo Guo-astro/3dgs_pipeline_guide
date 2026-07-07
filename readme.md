@@ -5,7 +5,9 @@
     * [Easy&Fast 3D Gaussian Splatting workflow with 360 Camera](<./[EN]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera.md>) <span style="color: #ff0000;">*updated*</span>
         * [Zenn Version](https://zenn.dev/kotohibi/articles/409bc16876b9e0) 
 
-    * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/10SOuw0BXGhk1p4JswI1t2cdGyP_qFWCSPFAwhJqc5mw/edit?usp=sharing) <span style="color: #ff0000;">*new*</span>
+    * [SAM3 Dual Masking for high quality 3DGS](https://docs.google.com/presentation/d/1lEvcNlKEz9LTd9mz5SsvAnuYnx4_xxi62350NbL7Cso/edit?usp=sharing)<span style="color: #ff0000;"> *new*</span>
+* 
+    * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/10SOuw0BXGhk1p4JswI1t2cdGyP_qFWCSPFAwhJqc5mw/edit?usp=sharing) <span style="color: #ff0000;">*recommended*</span>
     * [360 and Planar Hybrid Camera Combination Pattern for Amazing 3DGS](https://docs.google.com/presentation/d/1PwDuxNN0B8EEY9RMn_xodw0GheNQaCpXp9MH3nQ7_3U/edit?usp=sharing) 
 
     * [Dual 360 Cameras from Sky and Ground for amazing 3DGS](https://docs.google.com/presentation/d/1PXpSS9d_KWwLglSA-kuwUQvou21GgeSI0WZduf-LO3s/edit?usp=sharing)
@@ -20,7 +22,7 @@
     * [Concept of 360 Camera workflow for 3DGS(Google Slide)](https://docs.google.com/presentation/d/1vJqFi348G2yU591mRzWTuYHMnRLaCFwnkemWD7DGr3I/edit?usp=drive_link)
     * [Easy&Fast 3D Gaussian Splatting workflow with 360 Camera](<./[JP]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera.md>) <span style="color: #ff0000;">*updated*</span>
         * [Zenn Version](https://zenn.dev/kotohibi/articles/28b137f1873921)
-    * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/1OXwCcFUlAur3xF10uUsBsjLhdmraybx3mi_cvDdWBVg/edit?usp=sharing) <span style="color: #ff0000;">*new*</span>
+    * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/1OXwCcFUlAur3xF10uUsBsjLhdmraybx3mi_cvDdWBVg/edit?usp=sharing) <span style="color: #ff0000;">*recommended*</span>
 
 ----
 # Third-party Article List
