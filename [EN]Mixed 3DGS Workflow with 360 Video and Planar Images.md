@@ -81,7 +81,7 @@ If you are using a drone with a built-in 360 camera such as DJI AVATA360, this s
 |![](./images2/output_frame_00100.png)|![](./images2/custom_mask.png)|
 
 ## Loading the Video
-Load the 360 video in 360 Extractor. This tool can batch-process multiple videos.
+Load the 360 video in Extract Sharpest Frame. This tool can batch-process multiple videos.
 * If you turn on the "collect outputs from multiple videos into one folder" option, a sequential prefix is added to each video file, and the extracted still images are stored in one folder. Masks are also stored in one folder in the same way.
   * Example still-image filenames when processing two video files
     * Video 1 | Mask: 001_[output filename pattern], ...
