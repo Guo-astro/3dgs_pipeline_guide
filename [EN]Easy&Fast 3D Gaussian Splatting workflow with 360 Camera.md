@@ -126,18 +126,18 @@ This is a very important step for high-detail 3DGS.
 Select [Tools] → [Tie Points] → [Clean Tie points].
 ![](./images/metashape_tie_clean_1.png)
 
-* Select [Reprojection error] and adjust the slider to remove about 5% of the Tie points.
+* Select [Reprojection error] and adjust the slider to remove about 5% of the Tie points.<br>
 ![](./images/metashape_tie_clean_2.png)
 
-* The number of Tie points is shown at the bottom left of the screen, so adjust the slider while checking how many Tie points will be removed.
+* The number of Tie points is shown at the bottom left of the screen, so adjust the slider while checking how many Tie points will be removed.<br>
 ![](./images/metashape_tie_clean_3.png)
 
-* Click [Optimize Cameras] to optimize the cameras.
+* Click [Optimize Cameras] to optimize the cameras.<br>
 ![](./images/metashape_tie_clean_4.png)
 
-* Do the same for [Reconstruction uncertainty], remove about 5% of the Tie points, and then run [Optimize Cameras] again.
+* Do the same for [Reconstruction uncertainty], remove about 5% of the Tie points, and then run [Optimize Cameras] again.<br>
 
-* Do the same for [Projection accuracy], remove about 5% of the Tie points, and then run [Optimize Cameras] again.
+* Do the same for [Projection accuracy], remove about 5% of the Tie points, and then run [Optimize Cameras] again.<br>
 
 * Repeat this process once more: [Reprojection error] → [Optimize Cameras] → [Reconstruction uncertainty] → [Optimize Cameras] → [Projection accuracy] → [Optimize Cameras]. This helps remove low-reliability Tie points as much as possible.
 

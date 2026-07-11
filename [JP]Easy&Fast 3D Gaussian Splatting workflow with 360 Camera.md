@@ -124,13 +124,13 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 [Tools]->[Tie Points]->[Clean Tie points]を選択します
 ![](./images/metashape_tie_clean_1.png)
 
-* [Reprojection error]を選択してスライダーを調整して5%程度のTie pointsを削除するのがお勧めです
+* [Reprojection error]を選択してスライダーを調整して5%程度のTie pointsを削除するのがお勧めです<br>
 ![](./images/metashape_tie_clean_2.png)
 
-* 画面左下にTie points数が表示されるので、削除対象のTie points数を確認しながらスライダーを調整してください
+* 画面左下にTie points数が表示されるので、削除対象のTie points数を確認しながらスライダーを調整してください<br>
 ![](./images/metashape_tie_clean_3.png)
 
-* [Optimize Cameras]を押して、カメラの最適化を行います
+* [Optimize Cameras]を押して、カメラの最適化を行います<br>
 ![](./images/metashape_tie_clean_4.png)
 
 * [Recostruction uncertainty]も同様に5%程度のTie pointsを削除して、再度[Optimize Cameras]を行います
