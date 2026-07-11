@@ -204,6 +204,7 @@ From the Custom Mask tab, set the folder path of the 3DGS training masks generat
 ## Running the Conversion
 Press "Run Conversion" to start processing.
 At this point, a dialog appears indicating that planar images are included, but press "OK" to continue processing.
+360 images are expanded into Cubemaps, while planar images are automatically undistorted using the pinhole model. Masks are also processed automatically in the same way.
 
 # Training 3DGS
 Because the usage is the same as below, detailed steps are omitted.
