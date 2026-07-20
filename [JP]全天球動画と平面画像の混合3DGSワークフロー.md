@@ -205,6 +205,16 @@ Custom Maskタブから静止画抽出時に生成した3DGS学習用マスク�
 この際に平面画像が混じっている旨のダイアログが表示されますが、"OK"ボタンを押して処理を継続します。
 全天球画像はCubemap展開され、平面画像は自動でピンホールモデルにundistortionされます。マスクも同様に自動で処理されます。
 
+## 発展
+**Metashape 360 to COLMAP Converter V1.2.0**よりCubemapフィルタが実装され、全天球画像から展開したCubemapと平面画像の重なりを検知して、Cubemapの面を除外することが可能になりました。これにより、平面画像で学習される頻度が上がり、3DGS全体の品質を引き上げることが可能です。詳しくはツールのzipに同梱されているPDFをご覧ください。
+See my post on X : https://x.com/kotohibi_3d/status/2078088377371681237
+
+* "Cubemap Filter"をONにすると、Cubemapの重なり部分が除外されます。
+![](./images2/cubemapfilter.png)
+<br>
+* "Cubemapのfaceを除外した結果です。
+![](./images2/eliminate_1.png)
+
 # 3DGSを学習する
 使い方は以下と同じなため、詳細な手順は省略します。
 *  [[JP]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera]([JP]Easy&Fast%203D%20Gaussian%20Splatting%20workflow%20with%20360%20Camera.md)
@@ -231,14 +241,8 @@ See my post on X : https://x.com/kotohibi_3d/status/2048060928579850578
 |全天球画像+平面画像|3DGS品質は"平面画像のみ"と"全天球画像のみ"の中間の品質となる。シーン全体を全天球カメラで撮影し、注目領域を平面カメラで撮影することにより、バランスの取れたワークフローを実現できる。|
 |全天球画像のみ|シーン全体の再現には最も効率が良いが、注目領域の再現性は高くない。|
 
-## 今後の取り組み
-全天球画像+平面画像の混合ワークフローによる品質劣化は全天球画像により引き起こされる。
-よって、全天球画像と平面画像の重なりを検出して、全天球画像の面を除外することにより、
-対象領域を高画質な平面画像で学習される頻度を上げ、3DGS全体の品質を引き上げることが可能と考えます。今後の開発に期待してください。<br>
-![](./images2/eliminate_1.png)
 
-See my post on X : 
-https://x.com/kotohibi_3d/status/2073597710977073526
+
 
 
 

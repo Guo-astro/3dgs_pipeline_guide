@@ -206,6 +206,16 @@ Press "Run Conversion" to start processing.
 At this point, a dialog appears indicating that planar images are included, but press "OK" to continue processing.
 360 images are expanded into Cubemaps, while planar images are automatically undistorted using the pinhole model. Masks are also processed automatically in the same way.
 
+## Advanced
+Starting with **Metashape 360 to COLMAP Converter V1.2.0**, a Cubemap Filter has been implemented. It detects overlap between Cubemaps expanded from 360 images and planar images, and can exclude the corresponding Cubemap faces. This increases the frequency with which the target area is trained from planar images, making it possible to improve the overall quality of 3DGS. For details, refer to the PDF included in the tool zip file.
+See my post on X: https://x.com/kotohibi_3d/status/2078088377371681237
+
+* When "Cubemap Filter" is turned ON, overlapping Cubemap regions are excluded.
+![](./images2/cubemapfilter.png)
+<br>
+* Result after excluding Cubemap faces.
+![](./images2/eliminate_1.png)
+
 # Training 3DGS
 Because the usage is the same as below, detailed steps are omitted.
 *  [[EN]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera]([EN]Easy&Fast%203D%20Gaussian%20Splatting%20workflow%20with%20360%20Camera.md)
@@ -231,15 +241,6 @@ See my post on X: https://x.com/kotohibi_3d/status/2048060928579850578
 |Planar images only|The 3DGS quality of the area of interest is the best. Reconstructing the entire scene requires a very large amount of effort.|
 |360 images + planar images|The 3DGS quality is between "planar images only" and "360 images only." By capturing the entire scene with a 360 camera and the area of interest with a planar camera, this workflow achieves a good balance.|
 |360 images only|This is the most efficient way to reconstruct the entire scene, but the reproducibility of the area of interest is not high.|
-
-## Future Work
-The quality degradation in the mixed workflow using 360 images + planar images is caused by the 360 images.
-Therefore, by detecting overlap between 360 images and planar images and excluding the corresponding faces from the 360 images,
-it should be possible to increase the frequency with which the target area is trained from high-quality planar images and improve the overall quality of 3DGS. Please look forward to future development.<br>
-![](./images2/eliminate_1.png)
-
-See my post on X:
-https://x.com/kotohibi_3d/status/2073597710977073526
 
 
 
