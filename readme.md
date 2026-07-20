@@ -11,6 +11,7 @@
     * [360 and Planar Hybrid Camera Combination Pattern for Amazing 3DGS](https://docs.google.com/presentation/d/1PwDuxNN0B8EEY9RMn_xodw0GheNQaCpXp9MH3nQ7_3U/edit?usp=sharing) 
 
     * [Mixed 3DGS Workflow with 360 Video and Planar Images](./[EN]Mixed%203DGS%20Workflow%20with%20360%20Video%20and%20Planar%20Images.md)<span style="color: #ff0000;"> *new*</span>
+      * [Zenn Version](https://zenn.dev/kotohibi/articles/a14d2ff4fc205c)
 
     * [Dual 360 Cameras from Sky and Ground for amazing 3DGS](https://docs.google.com/presentation/d/1PXpSS9d_KWwLglSA-kuwUQvou21GgeSI0WZduf-LO3s/edit?usp=sharing)
    
@@ -26,6 +27,7 @@
         * [Zenn Version](https://zenn.dev/kotohibi/articles/28b137f1873921)
     * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/1OXwCcFUlAur3xF10uUsBsjLhdmraybx3mi_cvDdWBVg/edit?usp=sharing) <span style="color: #ff0000;">*recommended*</span>
     * [全天球動画と平面画像の混合3DGSワークフロー](./[JP]全天球動画と平面画像の混合3DGSワークフロー.md)<span style="color: #ff0000;"> *new*</span>
+      * [Zenn Version](https://zenn.dev/kotohibi/articles/34e3ad7fdd24db)
 
 ----
 # Third-party Article List
