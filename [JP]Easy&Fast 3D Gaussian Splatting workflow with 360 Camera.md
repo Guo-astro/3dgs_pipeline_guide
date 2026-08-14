@@ -7,10 +7,10 @@
 * https://x.com/naribubu/status/2038881884558791088
 * https://x.com/naribubu/status/2038875398717722743
 ### DJI OSMO360での撮影例
-* https://x.com/naribubu/status/2038646975894302792
-* https://x.com/naribubu/status/2034937726756430125
-* https://x.com/naribubu/status/2020138127084695876
-* https://x.com/naribubu/status/2017883648075391214 (As for --yaw-offset option)
+* https://x.com/kotohibi_3d/status/2087759111203209487
+* https://x.com/kotohibi_3d/status/2082426800215654725
+* https://x.com/kotohibi_3d/status/2074821581948481758
+* https://x.com/kotohibi_3d/status/2038179454367957106
 # 必要な物
 * 360° カメラ
     * DJI OSMO360
