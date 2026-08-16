@@ -207,7 +207,7 @@ At this point, a dialog appears indicating that planar images are included, but 
 360 images are expanded into Cubemaps, while planar images are automatically undistorted using the pinhole model. Masks are also processed automatically in the same way.
 
 ## Advanced
-Starting with **Metashape 360 to COLMAP Converter V1.2.0**, a Cubemap Filter has been implemented. It detects overlap between Cubemaps expanded from 360 images and planar images, and can exclude the corresponding Cubemap faces. This increases the frequency with which the target area is trained from planar images, making it possible to improve the overall quality of 3DGS. For details, refer to the PDF included in the tool zip file.
+Starting with **Metashape 360 to COLMAP Converter V1.2.0**, the Overlap Filter (formerly Cubemap Filter) has been implemented. It detects overlap between Cubemaps expanded from 360 images and planar images, and can exclude the corresponding Cubemap faces. This increases the frequency with which the target area is trained from planar images, making it possible to improve the overall quality of 3DGS. For details, refer to the PDF included in the tool zip file.
 See my post on X: https://x.com/kotohibi_3d/status/2078088377371681237
 
 * When "Cubemap Filter" is turned ON, overlapping Cubemap regions are excluded.

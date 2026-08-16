@@ -55,8 +55,12 @@ Recommended video settings: D-Log M, 30 fps or higher.
 ### Import the captured data into DJI Studio and perform color grading (color restoration).  
 * Apply the settings inside the red frame in the image below. Everything else can be left at default.  
 ![](https://storage.googleapis.com/zenn-user-upload/60fc28c6c26e-20260322.png)
+
+* (Advanced settings) When using the seam mask implemented in Extract Sharpest Frame V1.0.0 or later, turn RockSteady off. RockSteady provides electronic image stabilization and horizon leveling, but it changes the stitch line. Turn off the equivalent feature for Insta360 cameras as well.
+    * (Note) The seam mask masks misalignments along the stitch line between the front and rear fisheye cameras, allowing that area to be excluded from the camera alignment and 3DGS training described below.
 ### Export the video  
 * Export as an MP4 omnidirectional video. Example settings are shown in the image below.  
+* When developing multiple clips, you can develop them together using "Multiple Clips." Extract Sharpest Frame can batch-process multiple videos.
 ![](https://storage.googleapis.com/zenn-user-upload/b80d49f8fef6-20260322.png)
 
 # Extract Still Images from Video
@@ -64,7 +68,7 @@ There are many ways to extract still images from video. Research and choose your
 Here I introduce the tool I have published.  
 **Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.  
 * **New features are prioritized for updates in the BOOTH edition**  
-![](./images/ESP_3.png)
+![](./images/ESP_4.png)
 
 | Main Item          | Description |
 |--------------------|-------------|
@@ -78,10 +82,10 @@ Here I introduce the tool I have published.
 | Remove similar frames | Excludes similar frames. If Review is enabled, you can adjust the threshold during execution to control how many images are extracted. |
 | pHash threshold    | Specifies the threshold for judging similar frames. Higher values remove more images. This is useful when movement speed during shooting is irregular. |
 | Mask Generation    | Generates mask images for objects such as people and cars. This improves SfM accuracy in later steps. |
-| SAM3 Mask          | The latest version supports SAM3 masks. You can generate masks using any short sentence. You can preview the mask result with the Preview/Edit button. ![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367 |
-| YOLO Class IDs     | Specify the object IDs you want to detect. 0: person, 1: bicycle, 2: car, etc. Multiple IDs can be specified comma-separated. https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml |
-| YOLO Confidence    | Lowering the threshold increases detection rate but also increases noise. |
-| Custom Mask        | Specify a fixed mask image. If used together with YOLO automatic masking, they are merged. This is useful for masking areas that are always visible, such as a camera rig.<br><small>Note: Specify a PNG image with the same resolution as the video.</small><br>![](./images/ESP_2_1.png) |
+| SAM3 Dual Mask     | The latest version supports SAM3 masks. You can generate masks using any short sentence and preview the result with the Preview/Edit button. ![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367<br>(Advanced settings) Two SAM3 masks can be configured separately: one for camera alignment and one for 3DGS training. For details, see the following Google Slides:<br>https://t.co/X0uRH959RV |
+| YOLO Mask          | [YOLO Class IDs]<br>Specify the class IDs to detect. 0: person, 1: bicycle, 2: car, etc. Multiple IDs can be specified comma-separated. https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml<br>[YOLO Confidence]<br>Raising the threshold reduces false positives. Lowering it detects more objects but increases false positives.<br>[YOLO Model]<br>Model size and performance increase from yolo11n toward yolo11x, but so does processing load.<br>![](./images/yolo_1.png) |
+| Seam Mask          | Masks misalignments along the stitch line joining the two fisheye images. To keep the stitch line fixed, develop the video with horizon-leveling features in DJI Studio, Insta360 Studio, and similar software turned off before using this feature. ![](./images/seam_1.png) |
+| Custom Mask        | Specify a fixed mask image. When used with the masks above, they are merged. This is useful for masking areas that are always visible, such as a camera rig.<br><small>Note: Specify a PNG image with the same resolution as the video.</small>![](./images/custom_1.png) |
 | Analysis only      | Perform only sharpness calculation. Calculation results (metadata) are saved in the output folder. On subsequent runs, if metadata exists in the output folder, the analysis phase is skipped and only image extraction is performed. Useful when adjusting Chunk size. |
 | Save config        | Save the above settings as a configuration file. |
 | Load config        | Load a previously saved configuration file. |
@@ -154,7 +158,7 @@ Here I introduce the tool I have published.
 **Metashape 360 to COLMAP Converter**  
 * **New features are prioritized for updates in the BOOTH edition**  
 ### Settings ①  
-![](./images/MS360CC.png)
+![](./images/MS360CC_1.png)
 
 | Main Item          | Description |
 |--------------------|-------------|
@@ -171,12 +175,12 @@ Here I introduce the tool I have published.
 | Save Config        | Save the above settings as a config file |
 | Run Conversion     | Start the Cubemap conversion process |
 
-### Settings ②  
-* You can mask objects such as people or vehicles.  
-* Especially important for 360° cameras because the operator is often captured in the frame. Mask generation is a critical step.  
+### Settings ②: Mask Processing
+* If you use SAM3 masks generated by Extract Sharpest Frame, turn this feature off and specify the SAM3 masks in the custom-mask settings below.
+* You can generate masks for people, vehicles, and other objects.
+Mask generation is particularly important with 360° cameras because the operator is often captured in the frame.
 
-* **The settings below are explained in the BOOTH edition. The GitHub version has fewer features.**  
-![](https://storage.googleapis.com/zenn-user-upload/51916a668c5a-20260322.png)
+![](./images/MS360CC_2.png)
 
 | Main Item             | Description |
 |-----------------------|-------------|
@@ -186,13 +190,25 @@ Here I introduce the tool I have published.
 | YOLO Confidence       | Lowering the threshold increases detection rate but also increases noise. |
 | Enable overexposure mask | Overexposed (blown-out) pixels can become noise during 3DGS training. Enable this if you want to remove them. |
 
-### Settings ③ (Advanced Settings)
-* You can load the custom masks configured in Extract Sharpest Frame. This is useful when used together with a camera rig. Specify mask images as PNG files with the same file count, resolution, and filenames as the still images.
+### Settings ③ (Advanced Settings): Custom Mask
+* You can load SAM3 Dual Masks (for 3DGS training) generated by Extract Sharpest Frame, or custom masks. Specify mask images as PNG files with the same file count, resolution, and filenames as the still images.<br>Reference: Google Slides -> https://t.co/X0uRH959RV
 ![](./images/MS360CC_2_1.png)
 
-### Settings ④ (Advanced Settings)
+### Settings ④ (Advanced Settings): AprilTag
 * This feature estimates the real-world scale of 3DGS using 2D markers. An additional license is required. The following articles explain how to use AprilTag. English version: https://x.gd/CoWJA, Japanese version: https://x.gd/Isahb
 ![](./images/apriltag_1.png)
+
+### Settings ⑤ (Advanced Settings): Overlap Filter
+* See the [[EN]Mixed 3DGS Workflow with 360 Video and Planar Images]([EN]Mixed 3DGS Workflow with 360 Video and Planar Images.md) guide.
+* The ZIP file downloaded from BOOTH includes a detailed PDF operation manual. Please refer to it.
+* Reference: https://x.com/kotohibi_3d/status/2078088377371681237
+![](./images/overlap_filter_1.png)
+
+### Settings ⑥ (Advanced Settings): Cubemap Reduction
+* This feature reduces the number of Cubemaps while minimizing 3DGS quality loss. It can shorten 3DGS training time and reduce VRAM usage.
+* The ZIP file downloaded from BOOTH includes a detailed PDF operation manual. Please refer to it.
+* Reference: https://x.com/kotohibi_3d/status/2086408535768973659
+![](./images/cubemap_reduction_1.png)
 
 ### Execute  
 After processing completes successfully, the following folders and files are generated in the output folder.  
@@ -253,6 +269,7 @@ Here I explain the workflow using LichtFeld Studio (LFS).
     * `Iterations` and `Steps Scaler` are calculated automatically according to the number of images.
     * With MRNF, changes to the other parameters are usually not very necessary.
     * LFS has many parameters, so please research on the web and find the best settings for your scene.
+    * Recently, Bilateral Grid is often turned off because PPISP is sufficient in many cases.
 ![](./images/lfs_4.png)
 
 * Click [Start Training] to begin 3DGS training.

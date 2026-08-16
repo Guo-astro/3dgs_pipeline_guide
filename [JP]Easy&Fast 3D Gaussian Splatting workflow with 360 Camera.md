@@ -36,9 +36,9 @@
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
 
-* (任意) 3DCGの実寸を推定する為の追加ライセンス
+* (任意) 3DCGの実寸を推定するための追加ライセンス
     * Metashape 360 to COLMAP ConverterはAprilTagという二次元マーカーを利用して、3DGSの実寸を推定する機能があります。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています
-    * Add-on Real Sacle 3DGS with AprilTag https://kotohibi-cg.booth.pm/items/8323677
+    * Add-on Real Scale 3DGS with AprilTag https://kotohibi-cg.booth.pm/items/8323677
     * 英語版 : https://x.gd/CoWJA
     * 日本語版 : https://x.gd/Isahb
 
@@ -47,17 +47,21 @@
 動画設定はD-Log M, 30fps以上の撮影がお勧めです
 # 動画を現像する
 ### DJI Studioに撮影データを取り込み、現像処理(色復元)をします
-* 下記画像の赤枠の設定を実施。それ以外はデフォルトでOKです
+* 下記画像の赤枠の設定を実施。
 ![](https://storage.googleapis.com/zenn-user-upload/60fc28c6c26e-20260322.png)
+
+* (高度な設定)Extract Sharpest Frame V1.0.0から実装されたシームマスクを利用する場合、RockSteadyをoffにします。RockSteadyは電子手振れ補正、水平維持をする機能ですが、ステッチラインが変化します。Insta360の場合もそれに相当する機能はオフにします。
+    * (補足)シームマスクは前後の魚眼カメラのステッチラインのズレにマスクをして、後述のカメラアラインメントおよび3DGS学習から当該部分を除外することが可能です。
 ### 動画を書き出す
 * 全天球動画としてMP4ファイルで動画を書き出します。設定例を下図に示します
+* 複数クリップを現像する場合は"複数クリップ"で現像してもＯＫです。Extract Sharpest Frameは複数動画をバッチ処理できます。
 ![](https://storage.googleapis.com/zenn-user-upload/b80d49f8fef6-20260322.png)
 # 動画から静止画を切り出す
 * 動画から静止画を切り出す方法は様々あります。お好きな方法を調査、選択してください
 ここでは私が公開しているツールをご紹介します
 **Extract Sharpest Frame**は指定フレーム間隔で一番シャープな画像を切り出すツールです
 * **新機能はBOOTH版を優先的にupdateしております**
-![](./images/ESP_3.png)
+![](./images/ESP_4.png)
 
 |主要項目|説明|
 |---|---|
@@ -71,10 +75,10 @@
 |Remove similar frames|類似フレームを除外します。ReviewをONにすると実行時に閾値調整して切り出し枚数を調整可能です|
 |pHash threshold|類似フレームの判定閾値を指定します。値が大きいほど画像を間引きます。撮影時の移動速度が不規則な場合に有効な機能です|
 |Mask Generation|人や自動車等のマスク画像を生成します。後段のSfMの精度が上がります|
-|SAM3 Mask|最新版はSAM3マスク対応済みです。任意の短いセンテンスでマスク可能です。Preview/Editボタンでマスク結果を確認できます。![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367|
-|YOLO Class IDs|検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc.. カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml|
-|YOLO Confidence|閾値を下げると認識率は上がりますが、ノイズも増えます|
-|Custom Mask|固定のマスク画像を指定します。YOLOの自動マスクと併用する場合は融合されます。カメラリグ等が常に映り込む部分をマスクするのに有効です。<br><small>注）動画と同じ解像度のPNG画像を指定してください</small>![](./images/ESP_2_1.png)|
+|SAM3 Dual Mask|最新版はSAM3マスク対応済みです。任意の短いセンテンスでマスク可能です。Preview/Editボタンでマスク結果を確認できます。![](./images/sam3_1.png) https://x.com/kotohibi_3d/status/2061044432837972367<br>(高度な設定)SAM3は二通りのマスクを設定することが可能です。カメラアラインメントと3DGS学習用のマスクを分けることが可能です。詳細は次のGoogle Slideを参照してください<br>https://t.co/X0uRH959RV|
+|YOLO Mask|[YOLO Class IDs]<br>検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc.カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml<br>[YOLO Confidence]<br>閾値を上げると誤検知を減らせます。下げるとより多くを検出しますが誤検知は増えます<br>[YOLO Model]<br>yolo11nからyolo11x方向にモデルサイズが大きくなり高性能になりますが処理負荷は大きくなります<br>![](./images/yolo_1.png)|
+|Seam Mask|２つの魚眼画像を繋げたステッチラインのズレにマスクをかける機能です。ステッチライン位置を固定するため、DJI Studio or Insta360 Studio等の水平維持機能をオフにして現像して本機能をご利用ください![](./images/seam_1.png)|
+|Custom Mask|固定のマスク画像を指定します。上記マスクと併用する場合は融合されます。カメラリグ等が常に映り込む部分をマスクするのに有効です。<br><small>注）動画と同じ解像度のPNG画像を指定してください</small>![](./images/custom_1.png)|
 |Analysis only|画像のシャープさの計算のみ行います。出力フォルダに計算結果（メタ情報）が保存されます。次回から出力フォルダにメタ情報があると、解析フェーズをスキップして画像切り出しができます。Chunk sizeを調整した場合に有効です。|
 |Save config|上記の設定を設定ファイルとして保存します|
 |Load config|保存した設定ファイルを読み込みます|
@@ -134,7 +138,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 * [Optimize Cameras]を押して、カメラの最適化を行います<br>
 ![](./images/metashape_tie_clean_4.png)
 
-* [Recostruction uncertainty]も同様に5%程度のTie pointsを削除して、再度[Optimize Cameras]を行います
+* [Reconstruction uncertainty]も同様に5%程度のTie pointsを削除して、再度[Optimize Cameras]を行います
 
 * [Projection accuracy]も同様に5%程度のTie pointsを削除して、再度[Optimize Cameras]を行います
 
@@ -152,7 +156,7 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 * **新機能はBOOTH版を優先的にupdateしております**
 
 ### 設定①
-![](./images/MS360CC.png)
+![](./images/MS360CC_1.png)
 
 |主要項目|説明|
 |---|---|
@@ -169,26 +173,39 @@ SfMは全天球画像をダイレクトに処理できるMetashape Standardを�
 |Save Config|上記設定値を設定ファイルとして保存可能|
 |Run Conversion|Cubemap変換処理を開始|
 
-### 設定②
+### 設定② マスク処理
+* ※Extract Sharpest Frameで生成したSAM3マスクを利用する場合は本機能はオフにしてください。下記カスタムマスクにSAM3マスクを指定してください
 * 人物や自動車等のマスクを生成することが可能です
-特に360 Cameraは自身が映り込む為、マスク生成は重要な作業になります
-* **下記設定内容はBOOTH版で説明します、Github版より機能強化されています**
-![](https://storage.googleapis.com/zenn-user-upload/51916a668c5a-20260322.png)
+特に360 Cameraは自身が映り込むため、マスク生成は重要な作業になります。
+
+![](./images/MS360CC_2.png)
 
 |主要項目|説明|
 |---|---|
 |Mask Pass Mode|Singleは全天球画像でオブジェクト認識します。高速ですが精度は低いです。Dualは全天球画像とCubemap画像両方でオブジェクト認識します。処理量は多いですが、認識精度が高いです|
 |Merge Mode|Dualモード時にマスクを結合させるモードです。unionは双方の単純結合、refineはCubemapのマスクをベースに全天球マスクが統合されます。refineがお勧めです|
-|YOLO Class IDs|検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc.. カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml|
+|YOLO Class IDs|検出したいクラスIDを指定します。 0: person, 1: bicycle, 2: car, etc. カンマ区切りで複数ID指定可能です。https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml|
 |YOLO Confidence|閾値を下げると認識率は上がりますが、ノイズも増えます|
 |Enable overexposure mask|白飛び画素は3DGS学習時にノイズ成分になる場合があります、除去したい場合に有効にしてください|
 
-### 設定③（高度な設定）
-* Extract Sharpest Frameで設定したカスタムマスクをロード可能です。カメラリグと併用する場合に有効です。マスク画像は静止画と同じ枚数、同じ解像度のPNG画像、同じファイル名で指定してください
+### 設定③（高度な設定）カスタムマスク
+* Extract Sharpest Frameで生成したSAM3 Dual Mask(3DGS学習用)またはカスタムマスクをロード可能です。マスク画像は静止画と同じ枚数、同じ解像度のPNG画像、同じファイル名で指定してください。<br>参考：Google Slide -> https://t.co/X0uRH959RV
 ![](./images/MS360CC_2_1.png)
-### 設定④（高度な設定）
+### 設定④（高度な設定）AprilTag
 * 二次元マーカーを利用して、3DGSの実寸を推定する機能です。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています。英語版 : https://x.gd/CoWJA, 日本語版 : https://x.gd/Isahb
 ![](./images/apriltag_1.png)
+### 設定⑤（高度な設定）Overlapフィルタ
+* [[JP]全天球動画と平面画像の混合3DGSワークフロー]([JP]全天球動画と平面画像の混合3DGSワークフロー.md)を参照してください
+* BOOTHからダウンロードしたzipに詳細な操作説明書(PDF)が含まれています。それを参照してください
+* 参考：https://x.com/kotohibi_3d/status/2078088377371681237
+![](./images/overlap_filter_1.png)
+
+### 設定⑥（高度な設定）Cubemap削減
+* 3DGSの品質低下を最小限に抑え、Cubemapを削減する機能です。3DGS学習時間の短縮、VRAM使用量の削減を期待できます
+* BOOTHからダウンロードしたzipに詳細な操作説明書(PDF)が含まれています。参照してください
+* 参考：https://x.com/kotohibi_3d/status/2086408535768973659
+![](./images/cubemap_reduction_1.png)
+
 
 ### 実行
 * 処理実行後、正常に完了すると出力フォルダに以下のようなフォルダとファイルが生成されます
@@ -228,7 +245,7 @@ Mask Modeは**Remove Background**を選択します
 * 正しくデータが見つかると下記のようなダイアログが出ます。内容を確認して[Load]ボタンを押して次に進みます
 ![](./images/lfs_2.png)
 
-* データ正しくロードされると下記のような画面が出ます
+* データが正しくロードされると下記のような画面が出ます
 ![](./images/lfs_3.png)
 
 ### 3DGS学習開始
@@ -242,7 +259,8 @@ Mask Modeは**Remove Background**を選択します
   * SH Degreeを調整します(1～3), VRAMが少ない環境は1を推奨します
   * IterationsとSteps Scalerは画像枚数に応じて自動計算されます
   * MRNFの場合、その他のパラメータの変更はあまり必要ありません
-  * LFSはパラメーターが多い為Webで調べてシーンに最適な設定を探してください
+  * LFSはパラメーターが多いため、Webで調べてシーンに最適な設定を探してください
+  * ※最近はBilateral Gridはオフにする場合が多いです。(PPISPで十分な場合が多い)
 ![](./images/lfs_4.png)
 
 * [Start Training]を押して3DGSの学習を開始します。

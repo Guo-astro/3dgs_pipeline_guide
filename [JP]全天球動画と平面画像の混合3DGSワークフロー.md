@@ -206,7 +206,7 @@ Custom Maskタブから静止画抽出時に生成した3DGS学習用マスク�
 全天球画像はCubemap展開され、平面画像は自動でピンホールモデルにundistortionされます。マスクも同様に自動で処理されます。
 
 ## 発展
-**Metashape 360 to COLMAP Converter V1.2.0**よりCubemapフィルタが実装され、全天球画像から展開したCubemapと平面画像の重なりを検知して、Cubemapの面を除外することが可能になりました。これにより、平面画像で学習される頻度が上がり、3DGS全体の品質を引き上げることが可能です。詳しくはツールのzipに同梱されているPDFをご覧ください。
+**Metashape 360 to COLMAP Converter V1.2.0**よりCubemapフィルタ(※Overlapフィルタに名称変更)が実装され、全天球画像から展開したCubemapと平面画像の重なりを検知して、Cubemapの面を除外することが可能になりました。これにより、平面画像で学習される頻度が上がり、3DGS全体の品質を引き上げることが可能です。詳しくはツールのzipに同梱されているPDFをご覧ください。
 See my post on X : https://x.com/kotohibi_3d/status/2078088377371681237
 
 * "Cubemap Filter"をONにすると、Cubemapの重なり部分が除外されます。
