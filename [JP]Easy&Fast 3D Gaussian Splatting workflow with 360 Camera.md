@@ -7,7 +7,7 @@
 * https://x.com/naribubu/status/2038881884558791088
 * https://x.com/naribubu/status/2038875398717722743
 ### DJI OSMO360での撮影例
-* https://x.com/kotohibi_3d/status/2087759111203209487
+* https://x.com/kotohibi_3d/status/2088521899160879450
 * https://x.com/kotohibi_3d/status/2082426800215654725
 * https://x.com/kotohibi_3d/status/2074821581948481758
 * https://x.com/kotohibi_3d/status/2038179454367957106
