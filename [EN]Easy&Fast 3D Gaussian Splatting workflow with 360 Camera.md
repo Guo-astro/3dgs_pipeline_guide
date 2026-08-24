@@ -34,13 +34,13 @@ This workflow demonstrates an example of performing robust and relatively fast c
     * Extract Sharpest Frame (Free edition)
         * https://github.com/Kotohibi/Extract_sharpest_frame
     * 360 Extractor (paid edition)
-        * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
+        * https://kotohibi.f5.si/360/
   
 * Metashape 360 SfM to COLMAP-format Cubemap conversion tool
     * Metashape 360 to COLMAP Converter (Free edition)
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
     * 360 MCConverter (paid edition)
-        * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
+        * https://kotohibi.f5.si/360/
 
 * (Optional) Additional license for estimating real-world scale in 3DCG
     * Metashape 360 to COLMAP Converter includes a feature that estimates the real-world scale of 3DGS using a 2D marker called AprilTag. An additional license is required to use it. The following articles explain how to use AprilTag.

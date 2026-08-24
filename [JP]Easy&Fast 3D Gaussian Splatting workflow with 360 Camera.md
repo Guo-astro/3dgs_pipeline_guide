@@ -29,14 +29,14 @@
     * Brush: https://github.com/ArthurBrussee/brush
 * 動画から静止画切り出しツール
     * Extract Sharpest Frame（無料版）
-        * Free版 https://github.com/Kotohibi/Extract_sharpest_frame
+        * https://github.com/Kotohibi/Extract_sharpest_frame
     * 360 Extractor（有料版）
-        * 有料版 https://kotohibi.f5.si/360/
+        * https://kotohibi.f5.si/360/
 * Metashape 360 SfMからCOLMAP形式のCubemap変換ツール
     * Metashape 360 to COLMAP Converter（無料版）
-        * Free版 https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
+        * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
     * 360 MCConverter（有料版）
-        * 有料版 https://kotohibi.f5.si/360/
+        * https://kotohibi.f5.si/360/
 
 * (任意) 3DCGの実寸を推定するための追加ライセンス
     * Metashape 360 to COLMAP ConverterはAprilTagという二次元マーカーを利用して、3DGSの実寸を推定する機能があります。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています

@@ -39,12 +39,12 @@ OSMO360やAVATA360等の全天球カメラを用いた3DGS制作は手軽な反�
   * Extract Sharpest Frame（無料版）
         * https://github.com/Kotohibi/Extract_sharpest_frame
   * 360 Extractor（有料版）
-        * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
+        * https://kotohibi.f5.si/360/
 * Metashape 360 SfMからCOLMAP形式のCubemap変換ツール
   * Metashape 360 to COLMAP Converter（無料版）
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
   * 360 MCConverter（有料版）
-        * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
+        * https://kotohibi.f5.si/360/
 
 * (任意) 3DCGの実寸を推定するための追加ライセンス
     * Metashape 360 to COLMAP ConverterはAprilTagという二次元マーカーを利用して、3DGSの実寸を推定する機能があります。利用には追加ライセンスが必要です。AprilTagの利用方法は以下の記事で説明しています。
