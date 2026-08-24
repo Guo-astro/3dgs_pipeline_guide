@@ -36,12 +36,14 @@ The main goal is to improve 3DGS results by capturing the entire scene with a 36
     * LichtFeld Studio (LFS): https://github.com/MrNeRF/LichtFeld-Studio
     * Brush: https://github.com/ArthurBrussee/brush
 * Still-image extraction tool from video
-    * Extract Sharpest Frame (also known as 360 Extractor)
+  * Extract Sharpest Frame (free edition)
         * https://github.com/Kotohibi/Extract_sharpest_frame
+  * 360 Extractor (paid edition)
         * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
 * Metashape 360 SfM to COLMAP-format Cubemap conversion tool
-    * Metashape 360 to COLMAP Converter (also known as 360 MCConverter)
+  * Metashape 360 to COLMAP Converter (free edition)
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
+  * 360 MCConverter (paid edition)
         * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
 
 * (Optional) Additional license for estimating real-world scale in 3DCG

@@ -36,12 +36,14 @@ OSMO360やAVATA360等の全天球カメラを用いた3DGS制作は手軽な反�
     * LichtFeld Studio(LFS): https://github.com/MrNeRF/LichtFeld-Studio
     * Brush: https://github.com/ArthurBrussee/brush
 * 動画から静止画切り出しツール
-    * Extract Sharpest Frame (別名:360 Extractor)
+  * Extract Sharpest Frame（無料版）
         * https://github.com/Kotohibi/Extract_sharpest_frame
+  * 360 Extractor（有料版）
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
 * Metashape 360 SfMからCOLMAP形式のCubemap変換ツール
-    * Metashape 360 to COLMAP Converter (別名:360 MCConverter)
+  * Metashape 360 to COLMAP Converter（無料版）
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
+  * 360 MCConverter（有料版）
         * BOOTH版 Windows Binary Edition: https://kotohibi-cg.booth.pm/
 
 * (任意) 3DCGの実寸を推定するための追加ライセンス

@@ -31,14 +31,16 @@ This workflow demonstrates an example of performing robust and relatively fast c
     * LichtFeld Studio (LFS): https://github.com/MrNeRF/LichtFeld-Studio
     * Brush: https://github.com/ArthurBrussee/brush
 * Still-image extraction tool from video
-    * Extract Sharpest Frame
+    * Extract Sharpest Frame (Free edition)
         * https://github.com/Kotohibi/Extract_sharpest_frame
-    * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
+    * 360 Extractor (paid edition)
+        * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
   
 * Metashape 360 SfM to COLMAP-format Cubemap conversion tool
-    * Metashape 360 to COLMAP Converter
+    * Metashape 360 to COLMAP Converter (Free edition)
         * https://github.com/Kotohibi/Metashape_360_to_COLMAP_plane
-    * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
+    * 360 MCConverter (paid edition)
+        * BOOTH Windows Binary Edition: https://kotohibi-cg.booth.pm/
 
 * (Optional) Additional license for estimating real-world scale in 3DCG
     * Metashape 360 to COLMAP Converter includes a feature that estimates the real-world scale of 3DGS using a 2D marker called AprilTag. An additional license is required to use it. The following articles explain how to use AprilTag.
@@ -66,7 +68,7 @@ Recommended video settings: D-Log M, 30 fps or higher.
 # Extract Still Images from Video
 There are many ways to extract still images from video. Research and choose your preferred method.  
 Here I introduce the tool I have published.  
-**Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.  
+**Extract Sharpest Frame** is a tool that extracts the sharpest image at specified frame intervals.<br>
 * **New features are prioritized for updates in the BOOTH edition**  
 ![](./images/ESP_4.png)
 
