@@ -26,7 +26,7 @@
   * オープンソースソフトウェアのカメラアラインメント(SfM)ソフトです
     * https://colmap.github.io/
   * 全天球画像を直接SfM可能で、比較的ロバスト、高速です
-  * 本記事は執筆時点の最新版V4.2.0を利用しています。以下からダウンロード可能です
+  * 本ワークフローは執筆時点の最新版V4.2.0を利用しています。以下からダウンロード可能です
     * https://github.com/colmap/colmap/tags
     * バイナリ(CUDA対応)版 **colmap-x64-windows-cuda.zip**の利用をお勧めします
 
@@ -40,7 +40,7 @@
     * 360 Extractor（有料版）
         * https://kotohibi.f5.si/360/extractor.html
 * Colmap 360 SfMの結果をCubemapに変換ツール
-    * 360 CCConverter（有料）
+    * 360 CCConverter（有料版）
         * https://kotohibi.f5.si/360/ccconverter.html
 
 
@@ -103,7 +103,7 @@
   ![](./images3/colmap_1.jpg)
   |項目|説明|
   |---|---|
-  |Database|[New]ボタンを押下して新規データベースファイルを任意の場所に作成します。このファイルに処理途中のデータが格納されます
+  |Database|[New]ボタンを押下して新規データベースファイルを任意の場所に作成します。このファイルに処理途中のデータが格納されます|
   |Images|動画から切り出した静止画フォルダを指定します|
   |Save|最後に[Save]ボタンを押下してダイアログを閉じます|
 
@@ -113,7 +113,7 @@
 ![](./images3/colmap_2.jpg)
   |項目|説明|
   |---|---|
-  |Camera model|EQUIRECTANGURLARを選択します|
+  |Camera model|EQUIRECTANGULARを選択します|
   |Shared for all images|ONにします|
   |mask_path|生成したカメラアラインメント用マスクを指定します|
   |use_gpu|ONにします|
@@ -130,7 +130,7 @@
   |Run|特徴点マッチングを開始します|
 
 ### カメラアラインメントを実行する
-* メインウィンドウから[Reconstruction]->[Start reconstuction]を選択してカメラアラインメントを開始します
+* メインウィンドウから[Reconstruction]->[Start reconstruction]を選択してカメラアラインメントを開始します
 ![](./images3/colmap_4.jpg)
 
 ### カメラアラインメント結果を確認する
@@ -151,7 +151,7 @@
 
 |主要項目|説明|
 |---|---|
-|Input Images Folder|切り出した全天球画像フォルダを指定<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
+|Equirectangular Images Folder|切り出した全天球画像フォルダを指定<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
 |COLMAP Model Folder|Colmapのカメラアラインメント出力フォルダを指定<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
 |Output Folder|Cubemap展開先のフォルダを指定<br><small>注）マルチバイト文字を含むファイルパスは未サポート</small>|
 |Crop Size|6方向に切り出す画サイズ、OSMO360の8K動画の場合は1920でOK|
