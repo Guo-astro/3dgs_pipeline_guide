@@ -1,9 +1,20 @@
 # My Article List
-## 3DGS with 360 Camera
+## 3DGS with 360 Camera and Colmap
+* **English**
+  * [Easy&Fast 3D Gaussian Splatting workflow with COLMAP and 360 Camera](./[EN]Easy&Fast%203D%20Gaussian%20Splatting%20workflow%20with%20COLMAP%20and%20360%20Camera.md)<span style="color: #ff0000;"> *new*</span>
+    * [Zenn Version](https://zenn.dev/kotohibi/articles/e1c4078f9b92e9)
+    * [Qiita Version](https://qiita.com/kotohibi/items/7f7e4cce116b42c01365)
+* **日本語**
+  * [Colmapと360カメラで始める簡単＆高速 3DGaussian Splatting](./[JP]Colmapと360カメラで始める簡単＆高速%203D%20Gaussian%20Splatting.md)<span style="color: #ff0000;"> *new*</span>
+    * [Zenn Version](https://zenn.dev/kotohibi/articles/d47b8669e84e5d)
+    * [Qiita Version](https://qiita.com/kotohibi/items/2ba07a7a30e5c16c1b49)
+  
+## 3DGS with 360 Camera and Metashape
 * **English**
     * [Concept of 360 Camera workflow for 3DGS(Google Slide)](https://docs.google.com/presentation/d/1PRbYK3jzNf8aL02XwcQIgm0Sxvr7DrPECYdBn6mp2Ww/edit?usp=drive_link)
     * [Easy&Fast 3D Gaussian Splatting workflow with 360 Camera](<./[EN]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera.md>) <span style="color: #ff0000;">*updated*</span>
         * [Zenn Version](https://zenn.dev/kotohibi/articles/409bc16876b9e0) 
+        * [Qiita Version](https://qiita.com/kotohibi/items/998f73c5c5e210a02dbf)
 
     * [SAM3 Dual Masking for high quality 3DGS](https://docs.google.com/presentation/d/1lEvcNlKEz9LTd9mz5SsvAnuYnx4_xxi62350NbL7Cso/edit?usp=sharing)<span style="color: #ff0000;"> *new*</span>
 * 
@@ -12,6 +23,7 @@
 
     * [Mixed 3DGS Workflow with 360 Video and Planar Images](./[EN]Mixed%203DGS%20Workflow%20with%20360%20Video%20and%20Planar%20Images.md)<span style="color: #ff0000;"> *new*</span>
       * [Zenn Version](https://zenn.dev/kotohibi/articles/a14d2ff4fc205c)
+      * [Qitta Version](https://qiita.com/kotohibi/items/14a9fbf3a9b167462f05)
 
     * [Dual 360 Cameras from Sky and Ground for amazing 3DGS](https://docs.google.com/presentation/d/1PXpSS9d_KWwLglSA-kuwUQvou21GgeSI0WZduf-LO3s/edit?usp=sharing)
    
@@ -21,18 +33,20 @@
     * [Masking strategy for 3DGS](https://docs.google.com/presentation/d/1XxT2oVQUOWYmLJlpHJNO5aRcKMPhlh0TbenV79FbuGw/edit?usp=sharing) 
     * [Loose Coupling method for  Real Scale 3DGS with LiDAR SLAM](https://docs.google.com/presentation/d/100IEpF2vQLIZn1YVFbRQkOvKfnoTLO88yjSuux7ei_k/edit?usp=sharing)
 
-* **Japanese**
+* **日本語**
     * [Concept of 360 Camera workflow for 3DGS(Google Slide)](https://docs.google.com/presentation/d/1vJqFi348G2yU591mRzWTuYHMnRLaCFwnkemWD7DGr3I/edit?usp=drive_link)
-    * [Easy&Fast 3D Gaussian Splatting workflow with 360 Camera](<./[JP]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera.md>) <span style="color: #ff0000;">*updated*</span>
+    * [簡単＆高速 360°全天球カメラとMetashapeで高品質3D Gaussian Splatting制作](<./[JP]Easy&Fast 3D Gaussian Splatting workflow with 360 Camera.md>) <span style="color: #ff0000;">*updated*</span>
         * [Zenn Version](https://zenn.dev/kotohibi/articles/28b137f1873921)
+        * [Qiita Version](https://qiita.com/kotohibi/items/2ba07a7a30e5c16c1b49)
     * [Real Scale 3DGS with AprilTag](https://docs.google.com/presentation/d/1OXwCcFUlAur3xF10uUsBsjLhdmraybx3mi_cvDdWBVg/edit?usp=sharing) <span style="color: #ff0000;">*recommended*</span>
     * [全天球動画と平面画像の混合3DGSワークフロー](./[JP]全天球動画と平面画像の混合3DGSワークフロー.md)<span style="color: #ff0000;"> *new*</span>
       * [Zenn Version](https://zenn.dev/kotohibi/articles/34e3ad7fdd24db)
+      * [Qitta Version](https://qiita.com/kotohibi/items/1704ae6c7602360197a8)
 
 ----
 # Third-party Article List
 * **English**
     * [[YouTube]The Best Drone for Gaussian Splatting? (Antigravity A1) published by RadianceFields](https://youtu.be/LNfRwHoCcv8?si=E0nGTYSuC7RIKTPv) <span style="color: #ff0000;">*new*</span>
-* **Japanese**
+* **日本語**
     * [春の桜並木を3Dで残す。360°動画から始める3DGS入門 written by SkyLink Japan](https://skylinkjapan.com/blog/blog_3dgs_2026040/)
     * [3D Gaussian Splatting（3DGS）全天球動画撮影～公開まで｜バーレーンの事例から written by Takuma Nagao](https://note.com/mttr31/n/nd44057ffa5b3)
